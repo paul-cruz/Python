@@ -52,7 +52,6 @@ if __name__ == "__main__":
     l1.next.next.next.next.next = ListNode(9)
     l1.next.next.next.next.next.next = ListNode(9)
 
-
     l2 = ListNode(9)
     l2.next = ListNode(9)
     l2.next.next = ListNode(9)
