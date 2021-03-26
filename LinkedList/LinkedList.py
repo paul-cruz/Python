@@ -1,5 +1,6 @@
 from Node import Node
 
+
 class LinkedList:
     def __init__(self):
         self.first = None
@@ -24,17 +25,22 @@ class LinkedList:
 
     def pop(self):
         aux = self.first
-        while aux.next != self.last:
-            aux = aux.next
-        del aux.next
-        aux.next = None
-        self.last = aux
+        if aux.next != None:
+            while aux.next != self.last:
+                aux = aux.next
+            del self.last
+            aux.next = None
+            self.last = aux
+        else:
+            del self.first
+            self.first = None
+            self.last = None
 
     def remove(self):
         aux = self.first
         self.first = self.first.next
         del aux
-    
+
     def print_list(self):
         aux = self.first
         while aux != None:
@@ -55,14 +61,23 @@ class LinkedList:
             if aux.data == data:
                 return pos
             aux = aux.next
-            pos+=1
+            pos += 1
         return -1
-        
+
     def clear_out(self):
-        aux = self.first
-        while aux.next != None:
-            self.first = aux.next
-            del aux
+        if not self.empty():
             aux = self.first
-        del self.first
-        self.first = self.last = None
+            while aux.next != None:
+                self.first = aux.next
+                del aux
+                aux = self.first
+            del self.first
+            self.first = self.last = None
+
+    def to_list(self):
+        l = []
+        aux = self.first
+        while aux != None:
+            l.append(aux.data)
+            aux = aux.next
+        return l
