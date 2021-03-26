@@ -6,7 +6,7 @@ class Node:
         self.left = None
         self.right = None
 
-def isBalanced( root: Node) -> bool:
+def is_balanced( root: Node) -> bool:
         def dfs_balanced(root: Node) -> Tuple[int,bool]:
             if root is None:
                 return 0,True
@@ -46,4 +46,4 @@ if __name__ == "__main__":
     root.left.left.right = Node(5)                      #
     root.left.left.right.left = Node(6)                 #"""
     
-    print ("The BT is%sbalanced" %(" " if isBalanced(root) == True else " not ")) 
+    print ("The BT is%sbalanced" %(" " if is_balanced(root) == True else " not ")) 
