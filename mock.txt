@@ -1,0 +1,55 @@
+
+
+input
+1??0?101
+
+
+ n = 2
+ 00
+ 01
+ 10
+ 11
+
+
+{}->0->00
+     ->01
+	->1->10
+     ->11
+     
+
+      s = [0,0,0]
+
+def gen_str(str_):
+  questions = []
+  for i in range(len(str_)):
+    if str_[i] == '?':
+      questions.append(i)
+  bin_strings = generate_combinations(len(questions))
+  string = list(str_)
+  for b in bin_strings:
+    for q in questions:
+    	for p in b: #01
+        string[q] = p
+      
+      
+
+11?00?
+
+questions=[2,5]
+Output: 110000 <-
+Input: 11?0?
+      
+def generate_combinations(n):
+  s = [0] * n
+  helper(s, 0, n, '0')
+  helper(s, 0, n, '1')
+  
+  
+def helper(s, index, n, c):
+  if index >= n:
+    return
+	s[index] = c
+  helper(s,index+1, n, '0')
+  helper(s,index+1, n, '1')
+  if c == '0':
+  	l.append(s)
